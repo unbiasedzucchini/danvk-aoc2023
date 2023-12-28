@@ -16,7 +16,11 @@ fn calibration1(line: []const u8) u8 {
         }
         lastInt = digit;
     }
-    return 10 * firstInt.? + lastInt.?;
+    if (firstInt != null and lastInt != null) {
+	return 10 * firstInt.? + lastInt.?;
+    } else {
+    	return 0;
+    }
 }
 
 const NUMS = [_][]const u8{ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
